@@ -5,9 +5,11 @@ const http = require('http');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
+
 // Initialize some stuff
 const app = express();
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 // Declare a port.
 const PORT = process.env.PORT || 3000;
 
@@ -35,5 +37,5 @@ app.use(routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
+  app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });
