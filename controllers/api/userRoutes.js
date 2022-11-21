@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Note } = require('../../models');
 
 router.get("/", (req, res) => {
   User.findAll()
@@ -9,6 +9,18 @@ router.get("/", (req, res) => {
     .catch((err) => {
       res.status(500).json({ msg: "an error occured.", err });
     });
+});
+
+router.get("/:id", (req, res) => {
+  User.findByPk(req.params.id, {
+    include: [Note]
+  })
+  .then((user) => {
+    res.json(user)
+  })
+  .catch((err) => {
+    res.status(500).json({ msg: "Error retrieving user by specific id", err})
+  })
 });
 
 router.get("/check", (req, res) => {

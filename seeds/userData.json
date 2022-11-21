@@ -1,11 +1,13 @@
 [
     {
         "name": "Erik",
+        "last_name": "Buss",
         "email": "ebussman@gmail.com",
         "password": "password"
     },
     {
         "name": "Cecilia",
+        "last_name": "Poellein",
         "email": "cmpbuss@att.net",
         "password": "password"
     }
