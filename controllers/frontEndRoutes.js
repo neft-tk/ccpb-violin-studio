@@ -3,9 +3,17 @@ const router = express.Router();
 const {User, Note} = require('../models');
 
 router.get("/",(req,res)=>{
-        res.render("home",{
-            logged_in:req.session.logged_in
-        })
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
+    User.findByPk(req.session.user_id, {
+        include: [Note],
+    }).then(userData => {
+        const hbsData = userData.toJSON();
+        console.log(hbsData)
+        hbsData.logged_in=req.session.logged_in
+        res.render("home", hbsData)
+    })
 })
 
 router.get("/sessions",(req,res)=>{
