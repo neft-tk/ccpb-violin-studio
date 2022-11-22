@@ -5,6 +5,7 @@ createNoteForm.addEventListener("submit", e=>{
     const noteObj = {
         title:document.querySelector("#newLessonNoteTitle").value,
         body:document.querySelector("#newLessonNoteBody").value,
+        UserId:document.querySelector("#studentSelectDropdown").value,
     }
 
     console.log(noteObj);
