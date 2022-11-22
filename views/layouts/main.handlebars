@@ -23,11 +23,13 @@
         {{#if logged_in}}
         <a class='nav-link' href="/profile">Profile</a>
         <a class='nav-link' href="/lessonNotes">Lesson Notes</a>
+        {{#if admin}}
+        <a class='nav-link' href="/newNotes">Create a New Lesson Note</a>
+        {{/if}}
         <a class="nav-link" id="logoutBtn">Logout</a>
         {{else}}
         <a class='nav-link' href="/login">Login</a>
         {{/if}}
-
     </header>
     <main>
         {{{body}}}

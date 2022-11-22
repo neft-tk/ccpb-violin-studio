@@ -3,12 +3,21 @@
         "name": "Erik",
         "last_name": "Buss",
         "email": "ebussman@gmail.com",
-        "password": "password"
+        "password": "password",
+        "admin": true
     },
     {
         "name": "Cecilia",
         "last_name": "Poellein",
         "email": "cmpbuss@att.net",
-        "password": "password"
+        "password": "password",
+        "admin": true
+    },
+    {
+        "name": "Generic",
+        "last_name": "Student",
+        "email": "student@gmail.com",
+        "password": "password",
+        "admin": false
     }
 ]
