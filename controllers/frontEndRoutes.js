@@ -28,6 +28,20 @@ router.get("/login",(req,res)=>{
     res.render("login")
 })
 
+router.get("/newNotes",(req,res)=>{
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    }
+    User.findByPk(req.session.user_id, {
+        include: [Note],
+    }).then(userData => {
+        const hbsData = userData.toJSON();
+        console.log(hbsData)
+        hbsData.logged_in=req.session.logged_in
+        res.render("newNotes", hbsData)
+    })
+})
+
 router.get("/lessonNotes",(req,res)=>{
     if(!req.session.logged_in){
         return res.redirect("/login")
