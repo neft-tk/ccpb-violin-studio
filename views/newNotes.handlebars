@@ -1,14 +1,14 @@
 <h1>Create a new lesson note for a student!</h1>
 <hr>
 <h2>Select a Student to Create The Lesson Note For:</h2>
+
 <form action="" id="newLessonNoteForm">
         <label for="studentOptions">Select The Student:</label>
-        <input list="studentSelect" name="studentSelect" id="studentOptions">
-        <datalist id="studentSelectDropdown">
+        <select id="studentSelectDropdown">
             {{#each Users}}
-            <option value={{id}}>{{name}}</option>
+            <option value={{id}}>{{name}} {{last_name}}</option>
             {{/each}}
-        </datalist>
+        </select>
         <input type="text" name="newLessonNoteTitle" id="newLessonNoteTitle" placeholder="Note Title Here">
         <input type="text" name="newLessonNoteBody" id="newLessonNoteBody" placeholder="Write Your Note(s) Here">
         <button id="studentSelectBtn">Submit</button>

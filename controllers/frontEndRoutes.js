@@ -32,13 +32,15 @@ router.get("/newNotes",(req,res)=>{
     if(!req.session.logged_in){
         return res.redirect("/login")
     }
-    User.findByPk(req.session.user_id, {
-        include: [Note],
-    }).then(userData => {
-        const hbsData = userData.toJSON();
-        console.log(hbsData)
-        hbsData.logged_in=req.session.logged_in
-        res.render("newNotes", hbsData)
+    User.findAll()
+    .then(users => {
+        // const hbsData = userData.toJSON();
+        const userData = users.map((user) => user.get({ plain:true }));
+        const usersObj ={
+            Users: userData
+        }
+        console.log(usersObj)
+        res.render("newNotes", usersObj)
     })
 })
 
