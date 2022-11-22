@@ -1,3 +1,20 @@
-<h1>Welcome, {{name}}, to the Cecilia Poellein Violin Studio!</h1> 
+<h1>Welcome to the Cecilia Poellein Violin Studio!</h1> 
 
 <h2>Future Events:</h2>
+{{#each Events}}
+<h3>{{title}}</h3>
+<p>{{body}}</p>
+{{/each}}
+<hr>
+{{#if admin}}
+<h1>Create a New Future Event/Post!</h1>
+
+<form action="" id="newFutureEventForm">
+        <input type="text" name="newFutureEventTitle" id="newFutureEventTitle" placeholder="Future Event Title Here">
+        <input type="text" name="newFutureEventBody" id="newFutureEventBody" placeholder="Write About The Future Event Here">
+        <button id="studentSelectBtn">Submit</button>
+</form>
+<hr>
+{{/if}}
+
+<script src="/js/home.js"></script>
