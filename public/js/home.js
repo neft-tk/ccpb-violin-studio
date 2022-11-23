@@ -5,6 +5,7 @@ createFutureEventForm.addEventListener("submit", e=>{
     const eventObj = {
         title:document.querySelector("#newFutureEventTitle").value,
         body:document.querySelector("#newFutureEventBody").value,
+        date:document.querySelector("#newFutureEventDate").value,
     }
 
     console.log(eventObj);
